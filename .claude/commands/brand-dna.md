@@ -28,7 +28,12 @@ Da `$ARGUMENTS` o chiedendo all'utente, determina:
 
 Se è dato un **URL** da clonare/ispirare: usa la skill `firecrawl-website-design-clone` (o `firecrawl-scrape`) per estrarre colori, font, spacing e pattern reali, come evidenza. Niente valori inventati: se un dato non è verificabile, marcalo.
 
-Per generare il sistema sfrutta le skill installate: `design-system`, `ui-ux-pro-max`, `design`, `brand`.
+**Selettore motore (scegli in base al contesto, dichiara il perché):** punta al miglior output per struttura + grafica + CRO.
+- **Default (da zero / brand senza URL):** `design-system` + `ui-ux-pro-max` + `brand` — massimo controllo su struttura, regole, CRO, anti-slop.
+- **URL da clonare:** `firecrawl-website-design-clone`.
+- **Spinta grafica / più direzioni / screen da testo o immagine:** `stitch-design:generate-design` → `stitch-design:extract-design-md` (Google Stitch).
+- **DESIGN.md premium pronto senza generare screen:** `stitch-utilities:taste-design` (standalone).
+- ⚠️ Le skill Stitch (tranne `taste-design`) richiedono **Stitch MCP + account** (`labs.google.com/stitch`, vedi `CONNECTORS.md → Google Stitch`) e risorse Google → conferma prima; se non connesso, ripiega sul default. **Qualunque motore, l'output va normalizzato nella struttura DESIGN.md** (frontmatter token + sezioni 1-7 + regole nominate) e passa l'anti-slop + check CRO.
 
 ## Step 2 — Produci il design system
 

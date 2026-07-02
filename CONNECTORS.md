@@ -13,6 +13,7 @@ Tutte le chiavi vivono in `.env` / `.env.local` (mai committate) o negli MCP via
 | **Clerk** | Auth/login + webhook | SDK + dashboard | `…CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, `CLERK_WEBHOOK_SIGNING_SECRET` | dashboard.clerk.com |
 | **Email tool*** | Corso/automation email | API REST | `EMAIL_TOOL_API_TOKEN`, `EMAIL_TOOL_LIST_ID` | dipende dal tool |
 | **Firecrawl** | Ricerca/scrape/design-clone | MCP | `FIRECRAWL_API_KEY` | firecrawl.dev |
+| **Google Stitch** (opz.) | Generazione screen/UI + DESIGN.md premium (fase design) | Plugin + MCP | account Google Stitch | labs.google.com/stitch |
 | **Cloudflare** (opz.) | WAF/bot/rate-limit davanti a Vercel | dashboard/token | `CLOUDFLARE_API_TOKEN`, Turnstile keys | cloudflare.com |
 
 \* L'email tool si chiede in `/setup` (l'agente è agnostico): Mailchimp / ConvertKit / Brevo / ActiveCampaign / Klaviyo / Sendfox / altro. Usa nomi env neutri (`EMAIL_TOOL_*`) o quelli del provider scelto.
@@ -65,6 +66,17 @@ Provider agnostico (Mailchimp / ConvertKit / Brevo / ActiveCampaign / Klaviyo / 
 - [ ] **API key** da firecrawl.dev → `FIRECRAWL_API_KEY`
 - [ ] MCP in `.mcp.json` (già presente) — usa la suite `firecrawl_*`
 - [ ] ⚠️ consuma crediti a pagamento → chiedi conferma prima di ricerche grosse
+
+## Google Stitch (opzionale — motore grafico fase design)
+**Serve a:** generare screen/UI premium da testo o immagine e produrre `DESIGN.md` (fasi 2-4). È **un'opzione del selettore motore** in `design-system-agent` / `/brand-dna`, non il default: usalo quando serve spinta grafica, esplorazione di più direzioni o varianti.
+- [ ] **Install plugin** (una volta per macchina — vive nella cache globale `~/.claude/plugins/`, non nel repo):
+  ```
+  npx plugins add google-labs-code/stitch-skills --scope project --target claude-code
+  ```
+  Installa 3 plugin: `stitch-design` (generate/code-to-design/extract-design-md), `stitch-build` (design→React/shadcn), `stitch-utilities` (`design-md`, `taste-design`). Riavvia Claude Code per caricarli.
+- [ ] **Account Google Stitch** su `labs.google.com/stitch` + **Stitch MCP Server** collegato: richiesto da tutte le skill **tranne** `stitch-utilities:taste-design` (che genera un `DESIGN.md` premium standalone con solo Read/Write).
+- [ ] ⚠️ Le generazioni Stitch consumano risorse Google → **conferma prima** (regola 7). Se l'MCP non è connesso, l'agente ripiega sul default engine (`design-system` + `ui-ux-pro-max`).
+- [ ] **Normalizzazione:** l'output Stitch (linguaggio semantico suo) va sempre riportato nella struttura `DESIGN.md` del template (`execution/templates/DESIGN.template.md`) e passa anti-slop + check CRO.
 
 ## Cloudflare (opzionale, col dominio reale)
 **Serve a:** sicurezza davanti a Vercel: WAF, DDoS, bot/scraper, rate-limit su signup/API, Turnstile sui form.
