@@ -13,7 +13,7 @@ Tutte le chiavi vivono in `.env` / `.env.local` (mai committate) o negli MCP via
 | **Clerk** | Auth/login + webhook | SDK + dashboard | `…CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, `CLERK_WEBHOOK_SIGNING_SECRET` | dashboard.clerk.com |
 | **Email tool*** | Corso/automation email | API REST | `EMAIL_TOOL_API_TOKEN`, `EMAIL_TOOL_LIST_ID` | dipende dal tool |
 | **Firecrawl** | Ricerca/scrape/design-clone | MCP | `FIRECRAWL_API_KEY` | firecrawl.dev |
-| **Google Stitch** (opz.) | Generazione screen/UI + DESIGN.md premium (fase design) | Plugin + MCP | account Google Stitch | labs.google.com/stitch |
+| **Google Stitch** (opz.) | Generazione screen/UI + DESIGN.md premium (fase design) | Plugin + MCP | `STITCH_API_KEY` | labs.google.com/stitch |
 | **Cloudflare** (opz.) | WAF/bot/rate-limit davanti a Vercel | dashboard/token | `CLOUDFLARE_API_TOKEN`, Turnstile keys | cloudflare.com |
 
 \* L'email tool si chiede in `/setup` (l'agente è agnostico): Mailchimp / ConvertKit / Brevo / ActiveCampaign / Klaviyo / Sendfox / altro. Usa nomi env neutri (`EMAIL_TOOL_*`) o quelli del provider scelto.
@@ -74,7 +74,7 @@ Provider agnostico (Mailchimp / ConvertKit / Brevo / ActiveCampaign / Klaviyo / 
   npx plugins add google-labs-code/stitch-skills --scope project --target claude-code
   ```
   Installa 3 plugin: `stitch-design` (generate/code-to-design/extract-design-md), `stitch-build` (design→React/shadcn), `stitch-utilities` (`design-md`, `taste-design`). Riavvia Claude Code per caricarli.
-- [ ] **Account Google Stitch** su `labs.google.com/stitch` + **Stitch MCP Server** collegato: richiesto da tutte le skill **tranne** `stitch-utilities:taste-design` (che genera un `DESIGN.md` premium standalone con solo Read/Write).
+- [ ] **Account Google Stitch** su `labs.google.com/stitch` + **API key**. Il server MCP `stitch` è **già in `.mcp.json`** (`type: http`, `https://stitch.googleapis.com/mcp`, header `X-Goog-Api-Key: ${STITCH_API_KEY}`). Metti la chiave reale in **`.env.local`** (`STITCH_API_KEY=…`, gitignored) — mai in `.mcp.json` né committata. Richiesto da tutte le skill **tranne** `stitch-utilities:taste-design` (standalone Read/Write).
 - [ ] ⚠️ Le generazioni Stitch consumano risorse Google → **conferma prima** (regola 7). Se l'MCP non è connesso, l'agente ripiega sul default engine (`design-system` + `ui-ux-pro-max`).
 - [ ] **Normalizzazione:** l'output Stitch (linguaggio semantico suo) va sempre riportato nella struttura `DESIGN.md` del template (`execution/templates/DESIGN.template.md`) e passa anti-slop + check CRO.
 
