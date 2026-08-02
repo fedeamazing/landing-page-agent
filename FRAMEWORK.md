@@ -98,6 +98,13 @@ Headline, sezioni, microcopy, CRO, anti-AI.
 - **Comando:** `/copy`
 - **Skill/MCP:** `copywriting`, `copy-editing`, `marketing-psychology`, `directives/02_headline_optimization`, `directives/10_advanced_copywriting`, `context/brand/anti-ai-writing-style.md`.
 
+### Fase 6b — SEO on-page  ⟦condizionale⟧
+Pacchetto metadata per il ranking organico. Solo se la sorgente di traffico include SEO organico, o su richiesta esplicita.
+- **Input:** copy approvato + brief.
+- **Output:** `output/<slug>/seo/seo_pack.md` (title, meta description, dati strutturati, sitemap/robots).
+- **Comando:** `/seo`
+- **Skill/MCP:** `directives/14_seo_tecnica`. La Fase 12 (`google-search-console`) consuma questo lavoro una volta live.
+
 ### Fase 7 — Build
 Sviluppa la pagina/sito nel design system.
 - **Input:** architettura + design system + copy.
@@ -141,7 +148,7 @@ Misura e ottimizza.
 
 Tutti in `.claude/commands/`. Per ognuno: cosa fa · skill/plugin/MCP attivati · output che ricevi.
 
-**Comandi granulari per-step** (parti da QUALSIASI fase, ognuno lancia il suo subagent con le sue skill): `/brand-dna` (design system), `/wireframe`, `/copy`, `/build`, `/qa`, `/auth-setup`, `/db-setup`, `/deploy`. **Kickoff/orchestratori:** `/setup` (brief + contesto + credenziali), `/new-project` (1→11 in sequenza), `/retro`. Il wireframe produce anche **output HTML visibile**.
+**Comandi granulari per-step** (parti da QUALSIASI fase, ognuno lancia il suo subagent con le sue skill): `/brand-dna` (design system), `/wireframe`, `/copy`, `/seo`, `/build`, `/qa`, `/auth-setup`, `/db-setup`, `/deploy`. **Kickoff/orchestratori:** `/setup` (brief + contesto + credenziali), `/new-project` (1→11 in sequenza), `/retro`. Il wireframe produce anche **output HTML visibile**.
 
 ### `/setup` — fasi 0-1
 - **Fa:** carica il contesto obbligatorio, raccoglie e blocca il brief CRO (obiettivo, audience, traffico, offerta, KPI), scaffolda la cartella progetto, propone la pipeline.
