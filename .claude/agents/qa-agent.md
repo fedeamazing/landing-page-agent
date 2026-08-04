@@ -15,6 +15,7 @@ Build in `output/<slug>/build/`, `DESIGN.md`, `PRODUCT.md`, brief.
 3. **Copy:** coerenza con `context/brand/anti-ai-writing-style.md` (zero em dash, zero pattern AI), grammatica, numeri coerenti.
 4. **Self-check CRO:** applica `directives/03_editing_selfcheck.md`.
 5. Per web app: verifica il flusso end-to-end (signup → email → login → area → tracking).
+6. SEO (se presente seo_pack.md). Verifica che title/meta siano nei limiti di lunghezza, un solo H1 per pagina, JSON-LD sintatticamente valido, sitemap.xml/robots.txt raggiungibili.
 
 ## Output
 Report QA in `output/<slug>/build/qa_report.md` + fix applicati al build.
