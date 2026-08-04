@@ -36,7 +36,7 @@ Spiega tu all'utente, in 4-5 bullet, **l'intero percorso** che faremo (le fasi/c
 Segui `directives/01_landing_brief.md`. Raccogli e blocca:
 - Obiettivo di conversione + KPI primario
 - Audience (quale buyer persona dal brand layer / `PRODUCT.md`, o da definire con `directives/13_buyer_persona.md`)
-- Sorgente di traffico (Google Ads, Meta, SEO, email, referral) → il message match è un requisito
+- Sorgente di traffico (Google Ads, Meta, SEO, email, referral) → il message match è un requisito; se include SEO, segna SEO: sì in ROADMAP.md → attiva /seo tra Fase 6 e Fase 7.
 - Offerta e proposta di valore
 - Vincoli (lingua, tool, deadline, page builder di destinazione)
 
