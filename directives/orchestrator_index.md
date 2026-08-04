@@ -130,6 +130,10 @@ Questo file è l'**indice statico** di directives e skill + la mappa di **quale 
 - Definisce le buyer personas dal contesto brand (pain, desideri, obiezioni, trigger, canali, message angle). Non genera immagini.
 - **Agente:** Fase 1 (brief/discovery), `copy-agent`, `wireframe-agent`.
 
+### 14 — SEO Tecnica & Metadata (`14_seo_tecnica.md`)
+- Title tag, meta description, dati strutturati, Open Graph, sitemap/robots. Condizionale: si attiva solo con traffico SEO organico o su richiesta.
+- **Agente:** `seo-agent` (Fase 6b).
+
 ## Skill orchestrator — quale agente usa cosa
 
 La mappa completa fase → skill/MCP è in `CLAUDE.md` (sezione "Framework operativo") e nella skill `orchestrator`. In sintesi:
@@ -143,3 +147,5 @@ La mappa completa fase → skill/MCP è in `CLAUDE.md` (sezione "Framework opera
 | `qa-agent` | `impeccable`, `07_vercel_guidelines`, `03_editing_selfcheck` |
 | `backend-agent` | Clerk MCP, Supabase MCP |
 | `deploy-agent` | Vercel MCP, Cloudflare (opz.) |
+| `deploy-agent` | Vercel MCP, Cloudflare (opz.) |
+| `seo-agent` | `14_seo_tecnica` |
