@@ -15,6 +15,7 @@
 | Auth | [Clerk / Firebase Auth / nessuno] |
 | Database | [Supabase / Firestore / nessuno] |
 | Email tool | [Mailchimp / ConvertKit / Brevo / Klaviyo / Sendfox / …] |
+| SEO organico | [sì / no] |
 
 ---
 
@@ -34,6 +35,7 @@
 
 ### FASE 2 — Wireframe + copy + build
 - ☐ **[C]** Wireframe ⟦gate⟧ → copy anti-AI → build nel design system
+- ☐ **[C]** Pacchetto SEO (/seo, se attivato)
 
 ### FASE 3 — (web app) Auth + DB + tracking
 - ☐ **[U]** Chiavi auth/DB + email tool
